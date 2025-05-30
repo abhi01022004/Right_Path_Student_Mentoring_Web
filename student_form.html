@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Interest Form - RIGHT PATH</title>
+    <style>
+        /* Styles remain unchanged for consistent design */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #00796b;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        textarea {
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            width: 100%;
+            height: 120px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        textarea:focus {
+            border-color: #00796b;
+            box-shadow: 0 0 10px rgba(0, 121, 107, 0.3);
+        }
+        input[type="submit"] {
+            background-color: #00796b;
+            color: #fff;
+            padding: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 121, 107, 0.2);
+        }
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Interest Form</h1>
+        <form id="studentForm" action="{{ url_for('student_form') }}" method="POST">
+            <div>
+                <textarea name="favorite_subjects" placeholder="What subjects do you enjoy the most in school? Why?" required></textarea>
+            </div>
+            <div>
+                <textarea name="extracurricular_activities" placeholder="What are your favorite extracurricular activities?" required></textarea>
+            </div>
+            <div>
+                <textarea name="skills" placeholder="What are the things you believe you are particularly good at?" required></textarea>
+            </div>
+            <div>
+                <textarea name="career_interest" placeholder="What career(s) are you interested in pursuing?" required></textarea>
+            </div>
+            <div>
+                <textarea name="motivation" placeholder="What motivates you to work hard or excel in something?" required></textarea>
+            </div>
+            <input type="hidden" name="phone" value="{{ request.form.phone }}">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
